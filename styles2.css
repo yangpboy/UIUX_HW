@@ -1,0 +1,79 @@
+/* 黑色背景與白色文字基本設定 */
+body {
+    background: linear-gradient(145deg, #000000, #1a1a1a); /* 漸層黑色背景 */
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 容器樣式 */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #121212;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* 標題樣式 */
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+/* 表單標籤與輸入欄位 */
+label {
+    display: block;
+    margin: 12px 0 4px;
+    color: #ffffff;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #222;
+    color: #fff;
+}
+
+/* radio 與 checkbox 旁的文字 */
+.radio-group label,
+.checkbox-group label {
+    display: inline-block;
+    margin-right: 16px;
+    color: #ffffff;
+}
+
+/* 按鈕樣式 */
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* 密碼強度提示 */
+#password-strength {
+    display: block;
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+}

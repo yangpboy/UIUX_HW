@@ -1,0 +1,303 @@
+/* 黑色背景與白色文字基本設定 */
+body {
+    background:  #e1e1e1;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 100;
+    padding: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 容器樣式 */
+.container {
+    max-width: 1000px;
+    min-width: 200px;
+    width: 95%;
+    min-height: 100vh;
+    margin: 40px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    transition: all 0.3s ease-in;
+}
+
+/* 標題樣式 */
+h1 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 40px;
+    font-size: 36px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+#以上是背景與容器的基本樣式設定，接下來是表單的具體樣式設定
+
+/* 四欄布局：桌面版 */
+.four-column-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    align-items: stretch; /* 確保每個欄位等高 */
+}
+
+/* 手機版：垂直排列 */
+@media (max-width: 768px) {
+    .four-column-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 讓每個欄位使用 flex，方便 fieldset 撐滿高度 */
+.four-column-layout .column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 分區樣式 - fieldset 改為彈性伸展 */
+fieldset {
+    background: linear-gradient(to bottom, #6b2f46, #2a7c62);
+    border-radius: 20px;
+    color: white;
+    border: none;
+    padding: 12 0 0 12 ; /* 內部間距 */
+    margin: 12px 0; /* 分區上下間距 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;  /* 讓 fieldset 在所在的 .column 中撐滿剩餘高度 */
+}
+
+/* Legend 調整：完全在 fieldset 內顯示 */
+legend {
+    display: inline-block;
+    width: 100px;
+    margin-left: 0;
+    margin-right: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translateY(-1.2em);  /* 向上移動，但仍屬於 fieldset 內 */
+    z-index: 1;
+    padding: 5px 15px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border-radius: 12px 12px 12px 12px; /* 圓角邊框 左上,右上,右下,左下 */
+    border-color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* 表單分組 */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* 表單標籤與輸入欄位 */
+label {
+    display: block;
+    margin: 0px 0px 12px 0px; /* 標籤跟欄位的上下間距 */
+    color: #ffffff;
+}
+
+
+ 
+input:not(.other-input), textarea {
+    box-sizing: border-box;
+    width: 100%; 
+    padding: 12px;
+    border: 0px solid #dfbfbf00; /* 邊框顏色 */
+    border-radius: 8px;
+    background-color: #8787878c;
+    text-align: left;
+    color: #000000; /* 輸入文字顏色 */
+    font-size: 16px;
+}
+.other-input {
+    margin-top: 10px;
+    width: 100%;
+    display: none; /* 預設隱藏 */
+    transition: all 0.3s ease;
+}
+
+
+
+input::placeholder,
+textarea::placeholder {
+    color: #eeeeee9a; /* 提示文字的的顏色 */
+}
+
+/* 特定文本區域樣式 - 固定大小，不可調整 */
+.fixed-textarea {
+    resize: none;
+    height: 180px;
+    overflow-y: auto;
+}
+
+/* 讓表單元素在獲得焦點時有視覺反饋 */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #505050;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+/* 讓 radio 和 checkbox 可以換行 */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* 讓 以下兩種 label 和選取框對齊 */
+.radio-group label,
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* 調整間距 */
+    color: #ffffff;
+    flex: 1 1 100px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+/* 調整選取框（radio & checkbox）的樣式 */
+input[type="radio"],
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* 按鈕樣式 */
+.btn {
+    background-color: #000000;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    width: 60%;
+    max-width: 300px;
+    letter-spacing: 1px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 提交按鈕區域 */
+.button-row {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 按鈕懸停效果 */
+.btn:hover {
+    background-color: #ff0051;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 0, 81, 0.3);
+}
+
+/* 密碼強度提示 */
+#password-strength {
+    display: block;
+    margin-top: 4px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* 隱藏的選項輸入框 */ 
+.other-input {
+    box-sizing: border-box;
+    width: 100%; 
+    padding: 12px;
+    border: 0px solid #dfbfbf00; /* 邊框顏色 */
+    border-radius: 8px;
+    background-color: #8787878c;
+    text-align: left;
+    color: #000000; /* 輸入文字顏色 */
+    font-size: 16px;
+}
+.other-input[style*="display: block"] {
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 響應式調整 - 桌面兩欄、手機單欄（依需要調整） */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        padding: 25px;
+        margin: 15px;
+    }
+    
+    fieldset {
+        padding: 12px;
+        height: auto;
+    }
+    
+    .radio-group label,
+    .checkbox-group label {
+        flex: 1 1 120px;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .radio-group,
+    .checkbox-group {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .radio-group label,
+    .checkbox-group label {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+    
+    .fixed-textarea {
+        height: 120px;
+    }
+    
+    .btn {
+        padding: 12px;
+    }
+}
