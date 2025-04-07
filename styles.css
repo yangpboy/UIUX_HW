@@ -232,6 +232,7 @@ input[type="checkbox"] {
 }
 .other-input[style*="display: block"] {
     animation: fadeIn 0.3s;
+    
 }
 
 @keyframes fadeIn {
